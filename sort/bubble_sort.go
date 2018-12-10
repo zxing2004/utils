@@ -19,14 +19,14 @@ package sort
 // from small to large, please pass the parameter "lt";
 // BubbleSort 冒泡排序，rule参数指传入的排序规则
 // 从大到小请传参数“gt”，从小到大请传参数“lt”.
-func BubbleSort(arr []*int, rule string) {
-	for i := 0; i < len(arr)-1; i++ {
-		for j := 0; j < len(arr)-i-1; j++ {
-			if rule == "gt" && *arr[j] < *arr[j+1] {
-				*arr[j], *arr[j+1] = *arr[j+1], *arr[j]
+func BubbleSort(arr *[]int, rule string) {
+	for i := 0; i < len(*arr)-1; i++ {
+		for j := 0; j < len(*arr)-i-1; j++ {
+			if rule == "gt" && (*arr)[j] < (*arr)[j+1] {
+				(*arr)[j], (*arr)[j+1] = (*arr)[j+1], (*arr)[j]
 			}
-			if rule == "lt" && *arr[j] > *arr[j+1] {
-				*arr[j], *arr[j+1] = *arr[j+1], *arr[j]
+			if rule == "lt" && (*arr)[j] > (*arr)[j+1] {
+				(*arr)[j], (*arr)[j+1] = (*arr)[j+1], (*arr)[j]
 			}
 		}
 	}
