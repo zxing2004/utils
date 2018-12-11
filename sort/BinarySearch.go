@@ -14,27 +14,24 @@
 
 package sort
 
-import (
-	"fmt"
-)
-
-func BinarySearch(arr []int, khey int) (index int) {
+// BinarySearch Please pass in the values of the ordered array and query from small to large.
+// No "-1" was found and the index of the returned value was found.
+func BinarySearch(arr []int, findValue int) (index int) {
 	L := 0
 	R := len(arr) - 1
+
 	for {
-		M := (L + (R - 1)) / 2
 		if L > R {
 			return -1
 		}
-		if arr[M] == khey {
-			fmt.Println("Found", arr[M])
+		M := (L + R) / 2
+		if findValue == arr[M] {
 			return M
-		} else if arr[M] > khey {
+		} else if findValue < arr[M] {
 			R = M - 1
 		} else {
 			L = M + 1
 		}
 	}
-
 	return -1
 }
